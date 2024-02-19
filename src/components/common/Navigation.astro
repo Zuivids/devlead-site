@@ -1,0 +1,138 @@
+---
+import { Icon } from 'astro-icon/components';
+import {
+  getLocaleFromUrl,
+  useTranslatedPath,
+  useTranslations,
+} from '../../i18n/utils';
+import LanguageSwitch from './LanguageSwitch.astro';
+import logoImage from '../../assets/logo.png';
+import { Image } from 'astro:assets';
+
+export interface NavigationRoute {
+  name: string;
+  path: string;
+}
+
+const currentLocale = getLocaleFromUrl(Astro.url);
+const t = useTranslations(currentLocale);
+const l = useTranslatedPath(currentLocale);
+
+const routes: NavigationRoute[] = [
+  {
+    name: t.nav.services,
+    path: l('/services'),
+  },
+  {
+    name: t.nav.solutions,
+    path: l('/solutions'),
+  },
+  {
+    name: t.nav.about,
+    path: l('/about'),
+  },
+  {
+    name: t.nav.contact,
+    path: l('/contact'),
+  },
+];
+---
+
+<nav
+  class="h-24 z-10 sticky top-0 border-b border-zinc-800 px-4 sm:px-8 py-4 bg-zinc-900 text-white"
+>
+  <div
+    class="max-w-[1440px] h-full mx-auto flex gap-16 items-center
+    justify-between lg:justify-end"
+  >
+    <a class="text-2xl" href={l('/')}>
+      <Image
+        class="w-32 inline-block object-contain"
+        src={logoImage}
+        alt="DevLead logo"
+      />
+    </a>
+    <ul
+      id="navigation-content"
+      class="items-center text-center lg:text-left flex-1 justify-end
+      absolute top-24 left-0 bg-zinc-900 border-b border-zinc-800 lg:border-b-0 w-full hidden lg:flex lg:relative
+      lg:flex-row lg:top-auto lg:left-auto lg:border-none"
+    >
+      {
+        routes.map((route) => {
+          return (
+            <li class="w-full h-full lg:w-auto">
+              <a
+                class="w-full items-center px-4 py-6 lg:p-4 block lg:inline-flex hover:text-zinc-400 hover:transition-colors h-full transition-colors"
+                href={route.path}
+              >
+                {route.name}
+              </a>
+            </li>
+          );
+        })
+      }
+      <li
+        class="lg:border-l py-6 lg:py-0 lg:border-t-0 border-t border-zinc-800
+        lg:pl-4 lg:ml-2 px-4 flex justify-center"
+      >
+        <LanguageSwitch />
+      </li>
+    </ul>
+    <button
+      class="lg:hidden hover:opacity-80 bg-zinc-800 p-3"
+      id="navigation-mobile-toggle"
+      aria-label="Mobile nav toggle"
+    >
+      <Icon
+        id="navigation-mobile-toggle-open-button"
+        name="carbon:menu"
+        size={20}
+      />
+      <Icon
+        id="navigation-mobile-toggle-close-button"
+        name="carbon:close"
+        class="hidden"
+        size={20}
+      />
+    </button>
+  </div>
+</nav>
+<script>
+  const navigationContent = document.querySelector('#navigation-content');
+  const navigationMobileToggleCloseButton = document.querySelector(
+    '#navigation-mobile-toggle-close-button'
+  );
+  const navigationMobileToggleOpenButton = document.querySelector(
+    '#navigation-mobile-toggle-open-button'
+  );
+  const navigationMobileToggle = document.querySelector(
+    '#navigation-mobile-toggle'
+  );
+
+  const initNavigation = () => {
+    if (
+      !navigationContent ||
+      !navigationMobileToggle ||
+      !navigationMobileToggleOpenButton ||
+      !navigationMobileToggleCloseButton
+    ) {
+      console.error('Failed to load mobile navigation script.');
+      return;
+    }
+
+    navigationMobileToggle.addEventListener('click', () => {
+      if (navigationContent.classList.contains('hidden')) {
+        navigationContent.classList.remove('hidden');
+        navigationMobileToggleOpenButton.classList.add('hidden');
+        navigationMobileToggleCloseButton.classList.remove('hidden');
+      } else {
+        navigationContent.classList.add('hidden');
+        navigationMobileToggleCloseButton.classList.add('hidden');
+        navigationMobileToggleOpenButton.classList.remove('hidden');
+      }
+    });
+  };
+
+  initNavigation();
+</script>

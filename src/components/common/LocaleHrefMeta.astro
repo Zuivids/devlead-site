@@ -1,0 +1,35 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { locales } from '../../i18n/translations';
+
+const params: Record<string, string> = {};
+
+for (const [key, value] of Object.entries(Astro.params)) {
+  if (value === undefined) {
+    continue;
+  }
+
+  params[key] = String(value);
+}
+
+const localeKeys = Object.keys(locales);
+const hrefLangs = localeKeys.map((locale) => ({
+  href:
+    Astro.url.origin +
+    getRelativeLocaleUrl(
+      locale,
+      Astro.url.pathname
+        .split('/')
+        .filter((value) => !localeKeys.includes(value))
+        .join('/')
+        .replace(`${import.meta.env.BASE_URL}/`, '')
+    ),
+  hreflang: locale,
+}));
+---
+
+{
+  hrefLangs.map(({ href, hreflang }) => (
+    <link rel="alternate" href={href} hreflang={hreflang} />
+  ))
+}

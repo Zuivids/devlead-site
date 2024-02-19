@@ -1,0 +1,12 @@
+---
+import { getLocaleFromUrl, useTranslations } from '../i18n/utils';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const currentLocale = getLocaleFromUrl(Astro.url);
+const t = useTranslations(currentLocale);
+---
+
+<BaseLayout
+  title={`DevLead | ${t.nav.services}`}
+  description={t.meta.description}>Hello!</BaseLayout
+>

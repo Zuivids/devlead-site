@@ -1,0 +1,20 @@
+---
+import type { AstroInstance, GetStaticPaths } from 'astro';
+
+export const getStaticPaths = (async () => {
+  const pages: AstroInstance[] = await Astro.glob('../**/*.astro');
+  const base = import.meta.env.BASE_URL;
+
+  return pages.map((page) => ({
+    params: {
+      locale: 'lv',
+      slug: page.url?.replace(base, '') || undefined,
+    },
+    props: { Page: page.default },
+  }));
+}) satisfies GetStaticPaths;
+
+const { Page } = Astro.props;
+---
+
+<Page />

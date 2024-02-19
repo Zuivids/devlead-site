@@ -1,0 +1,38 @@
+---
+import Section from './Section.astro';
+
+import { getLocaleFromUrl, useTranslations } from '../../i18n/utils';
+
+export interface NavigationRoute {
+  name: string;
+  path: string;
+}
+
+const currentLocale = getLocaleFromUrl(Astro.url);
+const t = useTranslations(currentLocale);
+---
+
+<footer class="bg-zinc-900 text-white border-t border-zinc-800">
+  <Section class="p-0">
+    <div class="flex lg:flex-row w-full flex-col gap-6 justify-between text-sm">
+      <div
+        class="flex flex-col lg:flex-row gap-2 lg:gap-4 lg:divide-x divide-zinc-800"
+      >
+        <span class="py-2">{t.contact.address}</span>
+        <a
+          href={`tel:${t.contact.phoneNumber.replaceAll(' ', '')}`}
+          class="py-2 underline underline-offset-4 hover:opacity-80 lg:pl-4"
+          >{t.contact.phoneNumber}</a
+        >
+        <a
+          href={`mailto:${t.contact.email}`}
+          class="py-2 underline underline-offset-4 hover:opacity-80 lg:pl-4"
+          >{t.contact.email}</a
+        >
+      </div>
+      <span class="text-zinc-300"
+        >Copyright © 2024. SIA DevLead. All rights reserved</span
+      >
+    </div>
+  </Section>
+</footer>

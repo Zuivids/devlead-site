@@ -1,0 +1,26 @@
+---
+import ContactForm from '../components/home/ContactForm.astro';
+import Hero from '../components/home/Hero.astro';
+import ProductsGrid from '../components/home/ProductsGrid.astro';
+import Section from '../components/common/Section.astro';
+import SolutionsGrid from '../components/home/SolutionsGrid.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+import { getLocaleFromUrl, useTranslations } from '../i18n/utils';
+
+const currentLocale = getLocaleFromUrl(Astro.url);
+const t = useTranslations(currentLocale);
+---
+
+<BaseLayout title="DevLead" description={t.meta.description}>
+  <Hero />
+  <Section>
+    <SolutionsGrid />
+  </Section>
+  <Section class="bg-zinc-900">
+    <ProductsGrid />
+  </Section>
+  <Section>
+    <ContactForm />
+  </Section>
+</BaseLayout>

@@ -1,0 +1,23 @@
+---
+import { getRelativeLocaleUrl } from 'astro:i18n';
+import { locales } from '../../i18n/translations';
+import { getLocaleFromUrl } from '../../i18n/utils';
+
+const currentLocale = getLocaleFromUrl(Astro.url);
+---
+
+<div class="flex gap-2">
+  {
+    Object.keys(locales).map((locale) => (
+      <a
+        class:list={[
+          'text-sm w-10 h-10 flex items-center justify-center hover:opacity-80 transition font-semibold',
+          locale === currentLocale && 'bg-white text-zinc-950 ',
+        ]}
+        href={getRelativeLocaleUrl(locale, '')}
+      >
+        {locale.toUpperCase()}
+      </a>
+    ))
+  }
+</div>

@@ -1,0 +1,46 @@
+---
+import { getLocaleFromUrl, useTranslations } from '../../i18n/utils';
+
+const currentLocale = getLocaleFromUrl(Astro.url);
+const t = useTranslations(currentLocale);
+---
+
+<div class="flex flex-col lg:flex-row gap-8">
+  <div class="flex-1 min-h-[420px] bg-zinc-800"></div>
+  <div class="flex-1 flex flex-col gap-6">
+    <h1 class="text-6xl font-bold">{t.nav.contact}</h1>
+    <!-- TODO: Add mailto javascript handler  -->
+    <form class="flex flex-col gap-4 w-full">
+      <label class="font-semibold w-full">
+        {t.contact.form.email}
+        <input
+          type="email"
+          name="email"
+          placeholder={t.contact.email}
+          class="flex w-full border p-4 border-zinc-300"
+        />
+      </label>
+      <label class="font-semibold w-full">
+        {t.contact.form.phoneNumber}
+        <input
+          type="tel"
+          name="mobile_number"
+          placeholder={t.contact.phoneNumber}
+          class="flex w-full border p-4 border-zinc-300"
+        />
+      </label>
+      <label class="font-semibold w-full flex-1">
+        {t.contact.form.message}
+        <textarea
+          name="body"
+          rows="5"
+          cols="30"
+          class="flex w-full border p-4 border-zinc-300"></textarea>
+      </label>
+      <button
+        class="bg-zinc-900 hover:opacity-80 transition ease-in-out text-white p-4"
+        type="submit">{t.contact.form.submit}</button
+      >
+    </form>
+  </div>
+</div>

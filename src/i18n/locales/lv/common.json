@@ -1,0 +1,47 @@
+{
+  "meta": {
+    "description": "DevLead ir programmatūras izstrādes aģentūra, kas palīdz uzņēmumiem sasniegt savus mērķus, izmantojot inovatīvus programmatūras risinājumus. Mūsu pieredzējušais izstrādātāju un dizaineru komanda ir aizrautīga par programmatūras radīšanu, kas patiešām atšķiras. Kontaktējieties ar mums šodien, lai apspriestu savu projektu."
+  },
+  "nav": {
+    "services": "Pakalpojumi",
+    "solutions": "Risinājumi",
+    "about": "Par mums",
+    "contact": "Sazinies ar mums"
+  },
+  "hero": {
+    "description": "Programmatūras izstrāde ar izcilu kvalitāti par konkurētspējīgu cenu."
+  },
+  "solutions": {
+    "cloud": {
+      "title": "Mākoņa Risinājumi"
+    },
+    "web": {
+      "title": "Web Izstrāde"
+    },
+    "data": {
+      "title": "Datu Arhivēšana"
+    }
+  },
+  "products": {
+    "credmon": {
+      "description": "Lai nodrošinātu nepārtrauktu atbilstību Anacredit datu ziņošanas prasībām centrālajām bankām, DevLead nodrošina CredMon, specializētu rīku, kas nepārtraukti apkopo, glabā un salīdzina visus nepieciešamos datus."
+    },
+    "controlm": {
+      "description": "Mūsu Temenos T24 programmatūras rīku komplekts nodrošina vienkāršu integrāciju ar Control-M scheduleriem, piedāvājot izcilu risinājumu biznesa procesu efektīvai un drošai automatizācijai."
+    },
+    "devarch": {
+      "description": "Datu/dokumentu arhīva risinājums – visaptverošs risinājums datu ieguvei, attīrīšanai, apstrādei un glabāšanai no dažādiem avotiem, nodrošinot efektīvu pārvaldību un atgūšanu."
+    },
+    "devblocks": {
+      "description": "Izmantojot DevBlocks Engine, esam izveidojuši virkni efektīvu risinājumu mazajiem un vidējiem uzņēmumiem: CRM, līgumu pārvaldība, piedāvājumu pārvaldība, atsaukšanu pārvaldība, sadarbības pārvaldība un rēķinu rīks."
+    }
+  },
+  "contact": {
+    "form": {
+      "email": "E-pasts",
+      "phoneNumber": "Telefona numurs",
+      "message": "Tēma",
+      "submit": "Iesniegt"
+    }
+  }
+}

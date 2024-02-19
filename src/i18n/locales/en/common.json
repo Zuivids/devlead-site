@@ -1,0 +1,57 @@
+{
+  "meta": {
+    "description": "DevLead is a software development agency that helps businesses achieve their goals through innovative software solutions. Our team of experienced developers and designers is passionate about creating software that makes a real difference. Contact us today to discuss your project."
+  },
+  "nav": {
+    "solutions": "Solutions",
+    "services": "Services",
+    "about": "About Us",
+    "contact": "Contact Us"
+  },
+  "hero": {
+    "description": "Software development with outstanding quality at a competitive price."
+  },
+  "solutions": {
+    "cloud": {
+      "title": "Cloud Solutions",
+      "description": ""
+    },
+    "web": {
+      "title": "Web Development",
+      "description": ""
+    },
+    "data": {
+      "title": "Data Archiving",
+      "description": ""
+    }
+  },
+  "products": {
+    "credmon": {
+      "title": "CredMon",
+      "description": "To ensure seamless compliance with Anacredit reporting requirements for central banks, DevLead provides CredMon, a dedicated tool that seamlessly gathers, stores, and compares all necessary data."
+    },
+    "devarch": {
+      "title": "DevArch",
+      "description": "Data/Document Archive System – Comprehensive solution for extracting, cleaning, processing, and storing data from various sources, enabling efficient management and retrieval."
+    },
+    "devblocks": {
+      "title": "DevBlocks",
+      "description": "Employing the DevBlocks Engine, we have crafted a suite of streamlined solutions tailored to the needs of small and medium-sized businesses, encompassing CRM, contract management, proposal management, quote management, collaboration management, and billing tools."
+    },
+    "controlm": {
+      "title": "Control-M Temenos T24 Suite",
+      "description": "Our suite of Temenos T24 software tools enables seamless integration with Control-M schedulers, providing a best-in-class solution for efficient and secure automation of business processes."
+    }
+  },
+  "contact": {
+    "address": "Mazā Krasta iela 83, Rīga, LV-1003",
+    "email": "info@devlead.lv",
+    "phoneNumber": "+371 20036541",
+    "form": {
+      "email": "E-mail",
+      "phoneNumber": "Phone number",
+      "message": "Message",
+      "submit": "Submit"
+    }
+  }
+}
